@@ -1,0 +1,218 @@
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Teko, sans-serif;
+  background-color: #000000;
+  height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+/* Navbar Logo Section */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-logo img {
+  height: 60px; /* Responsive logo size */
+  max-height: 10vh;
+  margin-right: 10px;
+}
+
+.navbar-name-orange {
+  color: rgb(255, 95, 31);
+  font-size: clamp(1.5rem, 2vw, 2rem); /* Responsive font size */
+  font-weight: bold;
+}
+
+.navbar-name-white {
+  color: white;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: bold;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Gradient Button Design */
+.gradient-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  margin-bottom: 0.3rem;
+  margin-right: 0.3rem;
+  overflow: hidden;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-weight: 500;
+  color: #1f2937;
+  background: linear-gradient(to bottom right, #4f4d4e, #000000);
+  border-radius: 0.7rem;
+  transition: color 0.1s ease-in-out;
+  outline: none;
+  cursor: pointer;
+}
+
+.gradient-button:hover {
+  color: #ffffff;
+}
+
+.gradient-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+}
+
+/* Button Text */
+.button-text {
+  position: relative;
+  padding: 0.625rem 1.25rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gradient-button:hover .button-text {
+  background-color: transparent;
+}
+
+/* Button Icon */
+.button-icon {
+  width: 24px; /* Adjust icon size for scalability */
+  height: 24px;
+}
+
+/* About Button */
+.about-button {
+  color: white;
+  background-color: #1f2937;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* About Text */
+.about-text {
+  color: white;
+  cursor: pointer;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-right: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 0.7;
+}
+
+.about-text:hover {
+  color: #555;
+}
+.pricing-text {
+  color: white;
+  cursor: pointer;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-right: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 0.7;
+}
+
+.pricing-text:hover {
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar {
+    width: 95%;
+    height: 70px;
+  }
+
+  .navbar-logo img {
+    height: 50px;
+  }
+
+  .button-container {
+    gap: 8px;
+  }
+
+  .gradient-button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .navbar-logo {
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .gradient-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px;
+  }
+
+  .navbar-logo img {
+    height: 40px;
+  }
+
+  .about-text {
+    font-size: 1.3rem;
+  }
+
+  .gradient-button {
+    font-size: 0.9rem;
+  }
+}

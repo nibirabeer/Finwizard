@@ -1,0 +1,293 @@
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .navbar-logo img {
+    height: 70px;
+    margin-right: 20px;
+  }
+  
+  .navbar-name-orange {
+    color: rgb(255, 95, 31); /* First half of the text */
+    font-size: 2.5rem;
+  }
+  
+  .navbar-name-white {
+    color: white; /* Second half of the text */
+    font-size: 2.5rem;
+  }
+  /* Monthly Planner Button */
+  .monthly-planner-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.3rem;
+    margin-right: 0.3rem;
+    overflow: hidden;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: rgb(255, 254, 254);
+    border-radius: 0.7rem;
+    transition: color 0.1s ease-in-out;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .monthly-planner-button:hover {
+    background-color: #000000; 
+    color: #de5d32;
+  }
+  
+  .monthly-planner-button-text{
+    position: relative;
+    padding: 0.625rem 1.25rem;
+    background-color: #5e5e5e;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  /* Button Container */
+  .button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between buttons */
+  }
+  
+  /* Gradient Button */
+  .gradient-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    margin-bottom: 0.3rem;
+    margin-right: 0.3rem;
+    overflow: hidden;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #1f2937;
+    background: rgb(255, 74, 3);
+    border-radius: 0.7rem;
+    transition: color 0.1s ease-in-out;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .gradient-button:hover {
+    color: #ffffff;
+  }
+  .button-icon {
+    height: 25px;
+    width: 25px;
+  }
+  
+  .button-text {
+    position: relative;
+    padding: 0.625rem 1.25rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  
+  .gradient-button:hover .button-text {
+    background-color: transparent;
+  }
+  
+  /* Profile Icon */
+  .profile-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .profile-photo {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    border-radius: 100%; /* Make it round */
+    object-fit: cover; /* Ensure the image fits well */
+  }
+  
+  /* Dropdown Menu */
+  .profile-dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 70px; /* Adjust based on icon size */
+    right: 0;
+    background: rgb(255, 95, 31);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    min-width: 150px;
+  }
+  
+  .dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-menu li {
+    padding: 5px 20px;
+    color: #1f2937;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .dropdown-menu li:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+ /* Modal Overlay - Ensure full-screen coverage and proper centering */
+/* Profile Modal Specific Styles */
+/* Profile Modal Specific Styles */
+.profile-modal {
+  background: rgba(255, 255, 255, 0.98); /* Slightly more opaque */
+}
+
+.profile-modal h2 {
+  color: rgb(255, 95, 31); /* Dark gray heading */
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.profile-modal p {
+  color: black; /* Black text for profile content */
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.profile-modal button {
+  background-color: #FF4A00;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.profile-modal button:hover {
+  background-color: #e43f00;
+}
+
+.profile-photo-large {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+/* Settings Modal Specific Styles */
+.settings-modal {
+  background: rgba(255, 255, 255, 0.98); /* Slightly more opaque */
+}
+
+.settings-modal h2 {
+  color: #FF4A00; /* Dark gray heading */
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+
+.settings-modal label {
+  color: #1f2937; /* Dark gray labels */
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  align-self: flex-start; /* Align labels to the left */
+}
+
+.settings-modal input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+.settings-modal input:focus {
+  border-color: #FF4A00;
+  outline: none;
+}
+
+.settings-modal button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background-color: #FF4A00;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.settings-modal button:hover {
+  background-color: #e43f00;
+}
+
+.settings-modal button.cancel-btn {
+  background-color: #ddd;
+  color: #1f2937;
+}
+
+.settings-modal button.cancel-btn:hover {
+  background-color: #bbb;
+}
+.profile-photo {
+  width: 50px;  /* Set a fixed width */
+  height: 50px; /* Set a fixed height */
+  border-radius: 50%; /* Make it round */
+  object-fit: cover; /* Ensure it crops correctly */
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.profile-photo:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.profile-photo-large {
+  width: 220px; /* Larger size for modal */
+  height: 220px;
+  border-radius: 50%; /* Keep it round */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto; /* Center in modal */
+}

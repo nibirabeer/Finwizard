@@ -1,0 +1,90 @@
+/* Welcome Header Styles */
+.welcome-header {
+  background: rgb(255, 95, 31);
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 10px;
+  margin: 130px auto;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.welcome-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+/* Financial Form Styles */
+.financial-form {
+  background: 	#353935;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form-group {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-group input:focus {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+/* Submit Button */
+.submit-button {
+  background: #000000;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+  max-width: 400px;
+}
+
+.submit-button:hover {
+  background: #4e4c4b;
+}
+
+.submit-button:disabled {
+  background: rgb(255, 95, 31);
+  cursor: not-allowed;
+}
