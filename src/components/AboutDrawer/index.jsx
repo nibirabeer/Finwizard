@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./AboutDrawer.css"; // Import the CSS file
 import { X } from "lucide-react"; // Importing close icon from Lucide (or use any other icon library)
 
 const AboutDrawer = ({ isOpen, onClose }) => {
   const [showForm, setShowForm] = useState(false); // State to toggle form
   const [comment, setComment] = useState(""); // Store user input
+  const drawerRef = useRef(null); // Ref to track the drawer component
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -14,8 +15,27 @@ const AboutDrawer = ({ isOpen, onClose }) => {
     setShowForm(false); // Hide form after sending
   };
 
+  // Close the drawer when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        onClose(); // Close the drawer
+      }
+    };
+
+    // Add event listener when the drawer is open
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    // Cleanup the event listener
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
+
   return (
-    <div className={`about-drawer ${isOpen ? "open" : ""}`}>
+    <div className={`about-drawer ${isOpen ? "open" : ""}`} ref={drawerRef}>
       <div className="drawer-content">
         {/* Close Button */}
         <button className="close-button-1" onClick={onClose} aria-label="Close">

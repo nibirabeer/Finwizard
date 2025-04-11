@@ -1,0 +1,473 @@
+/* AdminPanel.css */
+
+/* General Enhancements */
+.admin-panel {
+  padding: 140px 20px; /* Reduced padding for better spacing */
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'teko', sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  padding-left: 200px;
+  padding-right: 200px;
+  box-sizing: border-box; /* Ensure padding is included in element dimensions */
+}
+
+.admin-panel-title {
+  font-size: 6rem;
+  font-family: "Big Shoulders Stencil", sans-serif;
+  margin-bottom: 20px;
+  color: #FF5F1F;
+  text-align: center;
+}
+
+/* Users List Enhancements */
+.users-list-container {
+  margin-top: 20px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.users-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.users-list-title {
+  font-size: 1.5rem;
+  color: #ff4a00;
+}
+
+.view-all-link {
+  color: #ff4a00;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.view-all-link:hover {
+  color: #e63e00;
+  text-decoration: underline;
+}
+
+.users-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Normal User Card */
+.user-item {
+  background-color: #3a3a3a;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+.user-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Admin User Card */
+.user-item.admin {
+  background-color: #2c2c2c; /* Darker background for admin */
+  border: 2px solid #ff4a00; /* Orange border for admin */
+}
+
+.user-item.admin .user-item-plan {
+  color: #ff4a00; /* Orange text for admin plan */
+  font-weight: bold;
+}
+
+.user-item.admin .user-item-avatar img {
+  border: 2px solid #ff4a00; /* Orange border for admin avatar */
+}
+
+.user-item.admin .user-name {
+  color: #ff4a00; /* Orange text for admin name */
+}
+
+.user-item.admin .user-email {
+  color: #ff4a00; /* Orange text for admin email */
+}
+
+.user-item.admin .user-item-actions {
+  border-top: 1px solid #ff4a00; /* Orange border for actions section */
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.user-item-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid #ff4a00;
+}
+
+.user-item-info {
+  flex-grow: 1;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #ffffff;
+}
+
+.user-email {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.user-item-plan {
+  font-size: 0.9rem;
+  color: #ff4a00;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.user-item-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Add User Button */
+.add-user-button {
+  background-color: #ff4a00;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.add-user-button:hover {
+  background-color: #e63e00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.add-user-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Glowing Effect on Hover */
+.add-user-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 74, 0, 0.3), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.add-user-button:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Form Group Enhancements */
+.form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff4a00;
+  box-shadow: 0 0 5px rgba(255, 74, 0, 0.5);
+}
+
+/* Plan Selection Enhancements */
+.plan-options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.plan-card {
+  background: #3a3a3a;
+  border: 2px solid #444;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.plan-card:hover {
+  border-color: #ff4a00;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card.selected {
+  border-color: #ff4a00;
+  background: rgba(255, 74, 0, 0.1);
+}
+
+.plan-card h3 {
+  font-size: 1.5rem;
+  color: #ff4a00;
+  margin-bottom: 10px;
+}
+
+.plan-card p {
+  font-size: 1rem;
+  color: #b0b0b0;
+  margin-bottom: 15px;
+}
+
+.plan-card .price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff4a00;
+}
+
+.plan-card .price small {
+  font-size: 1rem;
+  color: #b0b0b0;
+}
+
+/* Button Enhancements */
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background: #ff4a00;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #e63e00;
+}
+
+.close-button {
+  background: #ff4a00;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background: #e63e00;
+}
+
+/* Modal1 Styles */
+.modal1-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal1-content {
+  background: #2c2c2c;
+  border-radius: 10px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease;
+  max-height: 90vh; /* Limit modal height */
+  overflow-y: auto; /* Make modal scrollable */
+  box-sizing: border-box;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal1-content h2 {
+  font-size: 1.8rem;
+  color: #ff4a00;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal1-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal1-label {
+  font-size: 1rem;
+  color: #b0b0b0;
+  margin-bottom: 5px;
+}
+
+.modal1-input,
+.modal1-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.modal1-input:focus,
+.modal1-select:focus {
+  outline: none;
+  border-color: #ff4a00;
+  box-shadow: 0 0 5px rgba(255, 74, 0, 0.5);
+}
+
+.modal1-checkbox {
+  margin-right: 10px;
+  accent-color: #ff4a00; /* Custom checkbox color */
+}
+
+.modal1-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal1-save-button,
+.modal1-cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal1-save-button {
+  background-color: #ff4a00;
+  color: #ffffff;
+}
+
+.modal1-save-button:hover {
+  background-color: #e63e00;
+  transform: translateY(-2px);
+}
+
+.modal1-cancel-button {
+  background-color: #444;
+  color: #ffffff;
+}
+
+.modal1-cancel-button:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .admin-panel {
+    padding: 20px;
+  }
+
+  .modal1-content {
+    padding: 20px;
+    width: 95%;
+    max-width: 400px;
+  }
+
+  .plan-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal1-content {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .modal1-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .modal1-input,
+  .modal1-select,
+  .modal1-save-button,
+  .modal1-cancel-button {
+    font-size: 0.9rem;
+  }
+}

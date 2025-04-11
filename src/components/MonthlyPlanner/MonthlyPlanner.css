@@ -5,19 +5,26 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 140px;
+  padding: 140px 20px;
   background-color: #000000;
-  box-shadow: 0 2px 10px rgba(218, 144, 144, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
   overflow: hidden;
+  color: #ffffff;
+  font-family: Teko, sans-serif;
 }
 
 /* Title */
 .monthly-title {
-  font-size: 4rem;
-  font-weight: 600;
+  font-size: 3.5rem;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  background: #FF5F1F;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Currency Selector */
@@ -25,21 +32,28 @@
   margin: 20px 0;
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .currency-selector label {
   font-weight: 600;
-  margin-right: 10px;
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .currency-selector select {
   padding: 10px;
   font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.currency-selector select:hover {
+  border-color: #FF5F1F;
 }
 
 /* Add Pot Section */
@@ -49,40 +63,52 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .add-pot-title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
-  color: #b78a7a;
-  margin-bottom: 10px;
+  color: #FF5F1F;
+  margin-bottom: 15px;
 }
 
 .add-pot-section input {
-  padding: 10px;
-  margin: 5px;
+  padding: 12px;
+  margin: 8px 0;
   width: 80%;
   font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.add-pot-section input:focus {
+  border-color: #FF5F1F;
+  outline: none;
 }
 
 .add-pot-section button {
-  padding: 12px 20px;
+  padding: 12px 25px;
   margin-top: 15px;
   background-color: #FF5F1F;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .add-pot-section button:hover {
-  background-color: #cf8a6f;
+  background-color: #FF8C42;
+  transform: scale(1.05);
 }
 
 /* Pots Container */
@@ -97,89 +123,164 @@
 
 .pot-card {
   width: 250px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
+  background-color: #2a2a2a;
+  border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pot-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .pot-card h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
+  color: #FF5F1F;
+  margin-bottom: 15px;
 }
 
 .pot-card p {
   font-size: 1rem;
-  color: #555;
+  color: #cccccc;
   margin-bottom: 10px;
 }
 
 .pot-card button {
   padding: 8px 15px;
   background-color: #FF5F1F;
-  color: white;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   margin: 5px;
 }
 
 .pot-card button:hover {
-  background-color: #e59d80;
+  background-color: #FF8C42;
+  transform: scale(1.05);
 }
 
-/* Add Expense Section */
-.add-expense-section {
+/* Debt Payoff Section */
+.debt-payoff-section {
   width: 100%;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.add-expense-title {
-  font-size: 1.5rem;
+.debt-payoff-section h2 {
+  font-size: 1.75rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
+  color: #FF5F1F;
+  margin-bottom: 15px;
 }
 
-.add-expense-section input {
-  padding: 10px;
-  margin: 5px;
+.debt-payoff-section input {
+  padding: 12px;
+  margin: 8px 0;
   width: 80%;
   font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  transition: border-color 0.3s ease;
 }
 
-.add-expense-section button {
-  padding: 12px 20px;
+.debt-payoff-section input:focus {
+  border-color: #FF5F1F;
+  outline: none;
+}
+
+.debt-payoff-section button {
+  padding: 12px 25px;
   margin-top: 15px;
-  background-color: #28a745;
-  color: white;
+  background-color: #FF5F1F;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.add-expense-section button:hover {
-  background-color: #218838;
+.debt-payoff-section button:hover {
+  background-color: #FF8C42;
+  transform: scale(1.05);
+}
+
+/* Loan & EMI Calculator Section */
+.emi-calculator-section {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.emi-calculator-section h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #FF5F1F;
+  margin-bottom: 15px;
+}
+
+.emi-calculator-section input {
+  padding: 12px;
+  margin: 8px 0;
+  width: 80%;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.emi-calculator-section input:focus {
+  border-color: #FF5F1F;
+  outline: none;
+}
+
+.emi-calculator-section button {
+  padding: 12px 25px;
+  margin-top: 15px;
+  background-color: #FF5F1F;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.emi-calculator-section button:hover {
+  background-color: #FF8C42;
+  transform: scale(1.05);
+}
+
+.emi-calculator-section p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-top: 15px;
 }
 
 /* Chart Container */
@@ -190,44 +291,28 @@
   align-items: center;
   margin-top: 30px;
   color: #ffffff;
-  font-size: 3rem;
+}
+
+.chart-container h2 {
+  font-size: 2rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #FF5F1F;
   margin-bottom: 20px;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .monthly-budget-container {
+    padding: 20px;
+  }
 
+  .monthly-title {
+    font-size: 2.5rem;
+  }
 
-/* Dark Mode */
-.dark-mode {
-  background-color: #333;
-  color: white;
-}
-
-.dark-mode .monthly-budget-container {
-  background-color: #7c7878;
-}
-
-.dark-mode .add-pot-section input,
-.dark-mode .add-expense-section input,
-.dark-mode .currency-selector select {
-  background-color: #555;
-  border: 1px solid #666;
-  color: white;
-}
-
-.dark-mode .add-pot-section button,
-.dark-mode .add-expense-section button,
-.dark-mode .pot-card button {
-  background-color: #28a745;
-}
-
-.dark-mode .pot-card {
-  background-color: #555;
-  color: white;
-}
-
-/* Light/Dark Mode Transition */
-body, .monthly-budget-container {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  .add-pot-section input,
+  .debt-payoff-section input,
+  .emi-calculator-section input {
+    width: 90%;
+  }
 }

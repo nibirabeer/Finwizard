@@ -30,7 +30,7 @@
   }
   
   .modal-content h2 {
-    color: #ff4a00; /* Primary color for headings */
+    color: #FF5F1F; /* Primary color for headings */
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 2rem;
@@ -56,7 +56,7 @@
   
   .form-input:focus {
     outline: none;
-    border-color: #ff4a00;
+    border-color: #FF5F1F;
     box-shadow: 0 0 5px rgba(255, 74, 0, 0.5);
   }
   
@@ -69,7 +69,7 @@
     flex-wrap: wrap; /* Wrap plans on smaller screens */
   }
   .Choose Plan{
-    color: #ff4a00;
+    color: #FF5F1F;
   }
   .plan-card {
     background: #f7f7f7;
@@ -108,7 +108,7 @@
   .plan-card .price {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #ff4a00;
+    color: #FF5F1F;
   }
   
   .plan-card .price small {
@@ -141,7 +141,7 @@
   .submit-button {
     width: 100%;
     padding: 10px;
-    background: #ff4a00;
+    background: #FF5F1F;
     color: white;
     border: none;
     border-radius: 10px;
@@ -186,7 +186,7 @@
   }
   
   .close-button {
-    background: #ff4a00;
+    background: #FF5F1F;
     color: white;
     border: none;
     font-size: 1.5rem;
@@ -208,7 +208,7 @@
   }
   
   .toggle-link {
-    color: #ff4a00;
+    color: #FF5F1F;
     cursor: pointer;
     text-decoration: underline;
     font-size: 1.2rem;

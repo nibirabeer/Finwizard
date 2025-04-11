@@ -1,6 +1,6 @@
 /* Welcome Header Styles */
 .welcome-header {
-  background: rgb(255, 95, 31);
+  background: #FF5F1F;
   color: #fff;
   text-align: center;
   padding: 50px 20px;
@@ -67,7 +67,7 @@
 
 /* Submit Button */
 .submit-button {
-  background: #000000;
+  background: #FF5F1F;
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
@@ -81,10 +81,10 @@
 }
 
 .submit-button:hover {
-  background: #4e4c4b;
+  background: #686766;
 }
 
 .submit-button:disabled {
-  background: rgb(255, 95, 31);
+  background: #686766;
   cursor: not-allowed;
 }

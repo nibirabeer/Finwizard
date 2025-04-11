@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './LoginModal.css';
 import { auth, db } from '/firebase';
-import { 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  sendPasswordResetEmail, 
-  GoogleAuthProvider, 
-  signInWithPopup 
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from 'firebase/auth';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 
@@ -25,8 +25,27 @@ function LoginModal({ onClose, mode }) {
   const [cardDetails, setCardDetails] = useState({
     cardNumber: '',
     expiryDate: '',
-    cvv: ''
+    cvv: '',
   });
+
+  const modalRef = useRef(null); // Ref to track the modal component
+
+  // Close the modal when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose(); // Close the modal
+      }
+    };
+
+    // Add event listener when the modal is open
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Cleanup the event listener
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
 
   useEffect(() => {
     if (mode === 'signup') {
@@ -35,7 +54,7 @@ function LoginModal({ onClose, mode }) {
       setIsLogin(true);
     }
 
-    const savedUser = JSON.parse(localStorage.getItem("rememberedUser"));
+    const savedUser = JSON.parse(localStorage.getItem('rememberedUser'));
     if (savedUser) {
       setEmail(savedUser.email);
       setPassword(savedUser.password);
@@ -49,14 +68,15 @@ function LoginModal({ onClose, mode }) {
       if (isForgotPassword) {
         await sendPasswordResetEmail(auth, email);
         alert('Password reset link sent to your email!');
+        setIsForgotPassword(false); // Reset the forgot password state
       } else if (isLogin) {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         alert('Logged in successfully!');
 
         if (rememberMe) {
-          localStorage.setItem("rememberedUser", JSON.stringify({ email, password }));
+          localStorage.setItem('rememberedUser', JSON.stringify({ email, password }));
         } else {
-          localStorage.removeItem("rememberedUser");
+          localStorage.removeItem('rememberedUser');
         }
 
         onClose();
@@ -78,7 +98,8 @@ function LoginModal({ onClose, mode }) {
           createdAt: new Date(),
           savings: 0,
           expenses: 0,
-          profilePicture: "",
+          profilePicture: '',
+          isAdmin: false, // Default to false
         });
 
         if (selectedPlan === 'premium') {
@@ -98,33 +119,31 @@ function LoginModal({ onClose, mode }) {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      const fullName = user.displayName || "";
-      const nameParts = fullName.split(" ");
-      const firstName = nameParts[0] || "";
-      const lastName = nameParts.slice(1).join(" ") || "";
+      const fullName = user.displayName || '';
+      const nameParts = fullName.split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
 
-      const userRef = doc(db, "users", user.uid);
+      const userRef = doc(db, 'users', user.uid);
       const userDoc = await getDoc(userRef);
 
       if (!userDoc.exists()) {
-        const dob = prompt("Enter your Date of Birth (YYYY-MM-DD):", "");
-        const gender = prompt("Enter your Gender (Male/Female/Other):", "");
-
         await setDoc(userRef, {
           firstName,
           lastName,
           email: user.email,
-          dob: dob || "Not provided",
-          gender: gender || "Not specified",
+          dob: 'Not provided', // Default value
+          gender: 'Not specified', // Default value
           createdAt: new Date(),
-          profilePicture: user.photoURL || "",
+          profilePicture: user.photoURL || '',
           savings: 0,
           expenses: 0,
           plan: 'free',
+          isAdmin: false, // Default to false
         });
       }
 
-      alert("Signed in with Google successfully!");
+      alert('Signed in with Google successfully!');
       onClose();
     } catch (error) {
       alert(`Error: ${error.message}`);
@@ -133,7 +152,7 @@ function LoginModal({ onClose, mode }) {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
+      <div className="modal-content" ref={modalRef}>
         <h2 className="text-xl mb-4">
           {isForgotPassword ? 'Reset Password' : isLogin ? 'Login' : 'Sign Up'}
         </h2>
@@ -251,40 +270,56 @@ function LoginModal({ onClose, mode }) {
                   required
                 />
               </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="form-input"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              {!isLogin && (
-                <div className="form-group">
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    className="form-input"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              {isLogin && (
-                <div className="remember-me-container">
-                  <input
-                    type="checkbox"
-                    id="rememberMe"
-                    checked={rememberMe}
-                    onChange={() => setRememberMe(!rememberMe)}
-                  />
-                  <label htmlFor="rememberMe">Remember Me</label>
-                </div>
+              {!isForgotPassword && (
+                <>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      className="form-input"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  {!isLogin && (
+                    <div className="form-group">
+                      <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        className="form-input"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                      />
+                    </div>
+                  )}
+                  {isLogin && (
+                    <div className="remember-me-container">
+                      <input
+                        type="checkbox"
+                        id="rememberMe"
+                        checked={rememberMe}
+                        onChange={() => setRememberMe(!rememberMe)}
+                      />
+                      <label htmlFor="rememberMe">Remember Me</label>
+                    </div>
+                  )}
+                </>
               )}
             </>
+          )}
+          {isForgotPassword && (
+            <div className="form-group">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="form-input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
           )}
           <button type="submit" className="submit-button">
             {isForgotPassword ? 'Reset Password' : isLogin ? 'Login' : 'Sign Up'}
@@ -305,6 +340,20 @@ function LoginModal({ onClose, mode }) {
               </span>
               <span className="toggle-link" onClick={() => setIsLogin(!isLogin)}>
                 {isLogin ? 'Sign Up' : 'Login'}
+              </span>
+            </p>
+          )}
+          {isLogin && !isForgotPassword && (
+            <p>
+              <span className="toggle-link" onClick={() => setIsForgotPassword(true)}>
+                Forgot Password?
+              </span>
+            </p>
+          )}
+          {isForgotPassword && (
+            <p>
+              <span className="toggle-link" onClick={() => setIsForgotPassword(false)}>
+                Back to Login
               </span>
             </p>
           )}

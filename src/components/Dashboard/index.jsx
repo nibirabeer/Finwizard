@@ -180,7 +180,7 @@ const Dashboard = () => {
             color: "#ffffff",
           }}
         >
-          <img src="public/b.png" alt="Back" className="w-8 h-8" />
+          <img src="public/bb.png" alt="Back" className="w-8 h-8" />
           <span>Back</span>
         </button>
         <h1>{firstName}, Here is Your Budget Summary</h1>

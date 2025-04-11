@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&family=Bokor&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Noto+Serif+Old+Uyghur&family=Qwitcher+Grypen:wght@400;700&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-

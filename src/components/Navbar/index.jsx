@@ -1,69 +1,76 @@
-import React, { useState } from 'react';
-import './Navbar.css';
-import LoginModal from '../LoginModal'; // Import the LoginModal component
-import AboutDrawer from '../AboutDrawer'; // Import the AboutDrawer component
-import PricingDrawer from '../PricingDrawer'; // Import the new PricingDrawer component
+import React, { useState, useEffect } from "react";
+import "./Navbar.css";
+import LoginModal from "../LoginModal";
+import AboutDrawer from "../AboutDrawer";
+import PricingDrawer from "../PricingDrawer";
 
 const Navbar = () => {
-  const [isModalOpen, setModalOpen] = useState(false); // State for login modal
-  const [isAboutDrawerOpen, setAboutDrawerOpen] = useState(false); // State for about drawer
-  const [isPricingDrawerOpen, setPricingDrawerOpen] = useState(false); // State for pricing drawer
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isAboutDrawerOpen, setAboutDrawerOpen] = useState(false);
+  const [isPricingDrawerOpen, setPricingDrawerOpen] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Check if screen size is mobile
 
-  // Function to toggle the modal
-  const toggleModal = () => {
-    setModalOpen(!isModalOpen);
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Update state on resize
+    };
 
-  // Function to toggle the about drawer
-  const toggleAboutDrawer = () => {
-    setAboutDrawerOpen(!isAboutDrawerOpen);
-  };
-
-  // Function to toggle the pricing drawer
-  const togglePricingDrawer = () => {
-    setPricingDrawerOpen(!isPricingDrawerOpen);
-  };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
       <nav className="navbar">
-        <div className="navbar-logo" onClick={() => (window.location.href = '/home')}>
+        <div className="navbar-logo" onClick={() => (window.location.href = "#")}>
           <img src="public/FW Logo.png" alt="Logo" />
           <span className="navbar-name-orange">Fin</span>
           <span className="navbar-name-white">Wizard</span>
         </div>
-        <div className="button-container">
-          {/* About Text */}
-          <span
-            className="about-text"
-            onClick={toggleAboutDrawer} // Open the about drawer on click
-          >
-            About
-          </span>
 
-          {/* Pricing Text */}
-          <span
-            className="pricing-text"
-            onClick={togglePricingDrawer} // Open the pricing drawer on click
-          >
-            Pricing
-          </span>
+        {/* Desktop Buttons */}
+        {!isMobile && (
+          <div className="button-container">
+            <span className="about-text" onClick={() => setAboutDrawerOpen(true)}>
+              About
+            </span>
+            <span className="pricing-text" onClick={() => setPricingDrawerOpen(true)}>
+              Pricing
+            </span>
+            <button className="gradient-button" onClick={() => setModalOpen(true)}>
+              <span className="button-text">LOGIN</span>
+            </button>
+          </div>
+        )}
 
-          {/* Login Button */}
-          <button className="gradient-button" onClick={toggleModal}>
-            <span className="button-text">LOGIN</span>
-          </button>
-        </div>
+        {/* Mobile Menu Icon */}
+        {isMobile && (
+          <div className="hamburger-menu" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+            ☰
+          </div>
+        )}
       </nav>
 
-      {/* Modal for Login */}
-      {isModalOpen && <LoginModal onClose={toggleModal} />}
+      {/* Mobile Dropdown Menu */}
+      {isMobile && isMobileMenuOpen && (
+        <div className="mobile-dropdown">
+          <span className="dropdown-item" onClick={() => setAboutDrawerOpen(true)}>
+            About
+          </span>
+          <span className="dropdown-item" onClick={() => setPricingDrawerOpen(true)}>
+            Pricing
+          </span>
+          <span className="dropdown-item" onClick={() => setModalOpen(true)}>
+            Login
+          </span>
+        </div>
+      )}
 
-      {/* About Drawer */}
-      <AboutDrawer isOpen={isAboutDrawerOpen} onClose={toggleAboutDrawer} />
-
-      {/* Pricing Drawer */}
-      <PricingDrawer isOpen={isPricingDrawerOpen} onClose={togglePricingDrawer} />
+      {/* Modals & Drawers */}
+      {isModalOpen && <LoginModal onClose={() => setModalOpen(false)} />}
+      <AboutDrawer isOpen={isAboutDrawerOpen} onClose={() => setAboutDrawerOpen(false)} />
+      <PricingDrawer isOpen={isPricingDrawerOpen} onClose={() => setPricingDrawerOpen(false)} />
     </>
   );
 };
