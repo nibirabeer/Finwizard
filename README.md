@@ -7,7 +7,7 @@ This repository contains the development version of FinWizard, a smart, user-fri
 **Final Version of the Project**
 The final version of this project, including the fully working codebase and project poster, is available as a ZIP file via Google Drive:
 
-🔗 Download Final Version (Google Drive)
+🔗 Download Final Version ([Google Drive](https://drive.google.com/file/d/1fQVhE3E0VyaZXUn0EUqtdvig8_4_aEBV/view?usp=drive_link))
 🚀 How to Run FinWizard Locally
 Clone this repository or download the final ZIP file from the Drive link above.
 
