@@ -1,0 +1,148 @@
+/* About Drawer */
+.about-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 420px;
+  height: 100%;
+  background: #111111;
+  border-left: 1px solid #1e1e1e;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  padding: 28px;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.about-drawer.open {
+  right: 0;
+}
+
+/* Close Button */
+.close-button-1 {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+  padding: 6px;
+  color: #a1a1aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.close-button-1:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Drawer Header */
+.about-drawer h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4f4f5;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  clear: both;
+}
+
+.about-drawer > .drawer-content > p {
+  font-size: 0.9rem;
+  color: #71717a;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* Help Button */
+.help-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 95, 31, 0.1);
+  border: 1px solid rgba(255, 95, 31, 0.25);
+  color: #FF5F1F;
+  padding: 9px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.help-button:hover {
+  background: rgba(255, 95, 31, 0.18);
+  box-shadow: 0 0 0 3px rgba(255, 95, 31, 0.1);
+}
+
+/* Help Form */
+.help-form {
+  margin-top: 20px;
+}
+
+.help-form textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  background: #161616;
+  color: #f4f4f5;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.help-form textarea::placeholder {
+  color: #3f3f46;
+}
+
+.help-form textarea:focus {
+  border-color: #FF5F1F;
+}
+
+.help-form button {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #FF5F1F, #e54d10);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: opacity 0.15s;
+  box-shadow: 0 3px 12px rgba(255, 95, 31, 0.3);
+}
+
+.help-form button:hover {
+  opacity: 0.88;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-drawer {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #1e1e1e;
+    top: auto;
+    bottom: -100%;
+    right: 0;
+    height: 80%;
+    border-radius: 20px 20px 0 0;
+    transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .about-drawer.open {
+    bottom: 0;
+    right: 0;
+  }
+}

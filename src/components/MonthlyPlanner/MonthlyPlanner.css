@@ -1,0 +1,273 @@
+/* Container */
+.monthly-budget-container {
+  min-height: 100vh;
+  background-color: #080808;
+  padding: 100px 24px 60px;
+  font-family: 'Inter', sans-serif;
+  color: #f4f4f5;
+}
+
+.monthly-budget-container > * {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Title */
+.monthly-title {
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #FF5F1F;
+  text-align: center;
+  margin-bottom: 28px;
+  display: block;
+}
+
+/* Currency Selector */
+.currency-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #111111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+}
+
+.currency-selector label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #71717a;
+}
+
+.currency-selector select {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 7px;
+  border: 1px solid #2a2a2a;
+  background-color: #161616;
+  color: #f4f4f5;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.currency-selector select:focus,
+.currency-selector select:hover {
+  border-color: #FF5F1F;
+}
+
+/* Section cards */
+.add-pot-section,
+.debt-payoff-section,
+.emi-calculator-section {
+  background: #111111;
+  border: 1px solid #1e1e1e;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.add-pot-title,
+.debt-payoff-section h2,
+.emi-calculator-section h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 16px;
+}
+
+.add-pot-section input,
+.debt-payoff-section input,
+.emi-calculator-section input {
+  padding: 11px 14px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  border-radius: 9px;
+  border: 1px solid #2a2a2a;
+  background-color: #161616;
+  color: #f4f4f5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.add-pot-section input::placeholder,
+.debt-payoff-section input::placeholder,
+.emi-calculator-section input::placeholder {
+  color: #3f3f46;
+}
+
+.add-pot-section input:focus,
+.debt-payoff-section input:focus,
+.emi-calculator-section input:focus {
+  border-color: #FF5F1F;
+  box-shadow: 0 0 0 3px rgba(255, 95, 31, 0.1);
+}
+
+.add-pot-section button,
+.debt-payoff-section > button,
+.emi-calculator-section button {
+  padding: 11px 20px;
+  margin-top: 4px;
+  align-self: flex-start;
+  background: linear-gradient(135deg, #FF5F1F, #e54d10);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 3px 12px rgba(255, 95, 31, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.add-pot-section button:hover,
+.debt-payoff-section > button:hover,
+.emi-calculator-section button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* EMI result text */
+.emi-calculator-section p {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.4rem;
+  color: #22c55e;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+/* Pots Container */
+.pots-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Pot / Debt Card */
+.pot-card,
+.debt-card {
+  background: #111111;
+  border: 1px solid #1e1e1e;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: left;
+  transition: transform 0.2s ease, border-color 0.2s;
+  position: relative;
+}
+
+.pot-card::before,
+.debt-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 14px 14px 0 0;
+  background: #FF5F1F;
+}
+
+.debt-card::before {
+  background: #ef4444;
+}
+
+.pot-card:hover,
+.debt-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.pot-card h3,
+.debt-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 10px;
+}
+
+.pot-card p,
+.debt-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #71717a;
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.pot-card button,
+.debt-card button {
+  margin-top: 12px;
+  padding: 7px 14px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.pot-card button:hover,
+.debt-card button:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Chart Container */
+.chart-container {
+  max-width: 760px;
+  margin: 20px auto 0;
+  background: #111111;
+  border: 1px solid #1e1e1e;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-container h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .monthly-budget-container {
+    padding: 90px 16px 48px;
+  }
+  .pots-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pots-container {
+    grid-template-columns: 1fr;
+  }
+}

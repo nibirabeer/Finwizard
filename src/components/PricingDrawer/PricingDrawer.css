@@ -1,0 +1,198 @@
+/* Pricing Drawer */
+.pricing-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 420px;
+  height: 100%;
+  background: #111111;
+  border-left: 1px solid #1e1e1e;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  padding: 28px;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.pricing-drawer.open {
+  right: 0;
+}
+
+/* Close Button */
+.close-button-2 {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  float: right;
+  width: 36px;
+  height: 36px;
+  font-size: 1.5rem;
+  color: #a1a1aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+}
+
+.close-button-2:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Drawer Header */
+.pricing-drawer h2 {
+  font-family: 'Teko', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f4f4f5;
+  margin-top: 8px;
+  margin-bottom: 6px;
+  clear: both;
+}
+
+.pricing-drawer > p {
+  font-size: 0.875rem;
+  color: #71717a;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* Pricing Cards Container */
+.pricing-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Pricing Card */
+.pricing-card {
+  background: #161616;
+  border: 1px solid #222222;
+  border-radius: 14px;
+  padding: 22px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pricing-card:hover {
+  border-color: rgba(255, 95, 31, 0.3);
+  transform: translateY(-1px);
+}
+
+.pricing-card .plan-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f4f4f5;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Price display */
+.pricing-card .price {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 18px;
+  gap: 2px;
+}
+
+.pricing-card .price .currency {
+  font-family: 'Teko', sans-serif;
+  font-size: 1.4rem;
+  color: #FF5F1F;
+}
+
+.pricing-card .price .amount {
+  font-family: 'Teko', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f4f4f5;
+  line-height: 1;
+  margin: 0 3px;
+}
+
+.pricing-card .price .duration {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #71717a;
+}
+
+/* Features List */
+.pricing-card .features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.pricing-card .features-list .feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #a1a1aa;
+}
+
+.pricing-card .features-list .feature .icon {
+  width: 16px;
+  height: 16px;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.pricing-card .features-list .feature.disabled {
+  color: #3f3f46;
+}
+
+.pricing-card .features-list .feature.disabled .icon {
+  color: #2a2a2a;
+}
+
+.pricing-card .features-list .feature.disabled span {
+  text-decoration: line-through;
+}
+
+/* Choose Plan Button */
+.pricing-card .choose-plan-button {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(135deg, #FF5F1F, #e54d10);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 3px 12px rgba(255, 95, 31, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.pricing-card .choose-plan-button:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pricing-drawer {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #1e1e1e;
+    top: auto;
+    bottom: -100%;
+    right: 0;
+    height: 85%;
+    border-radius: 20px 20px 0 0;
+    transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pricing-drawer.open {
+    bottom: 0;
+    right: 0;
+  }
+}
